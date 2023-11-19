@@ -71,15 +71,16 @@ public class ObjectPooler : MonoBehaviour
 			{
 				if (!objectPool[i].activeInHierarchy)
 				{
-					//if (i > 0 && objectPool[i - 1].activeInHierarchy)
-					//{
-					//	continue; // Skip this one, it was just disabled
-					//}
 					return objectPool[i];
 				}
 			}
 		}
 
 		return null;
+	}
+
+	public void DeactivateObject(GameObject obj)
+	{
+		obj.SetActive(false);
 	}
 }
