@@ -270,6 +270,10 @@ MonoBehaviour:
       type: 3}
     countToPool: 50
     parentTransform: {fileID: 555794421}
+  - prefab: {fileID: 5024009746357069194, guid: ec3f674830402cc45bce805cf6493db7,
+      type: 3}
+    countToPool: 20
+    parentTransform: {fileID: 555794421}
 --- !u!4 &245843198
 Transform:
   m_ObjectHideFlags: 0
@@ -1050,6 +1054,7 @@ MonoBehaviour:
   leftProjSocket: {fileID: 467743864}
   bulletProjectile: {fileID: 1190289218894991297, guid: 3fa6a9408fdbd78468f4b62fcca7b089,
     type: 3}
+  projectileSpeed: 10
 --- !u!1 &1376800455
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,7 +1069,7 @@ GameObject:
   - component: {fileID: 1376800456}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1462,7 +1467,7 @@ GameObject:
   - component: {fileID: 1976130061}
   m_Layer: 0
   m_Name: Wall
-  m_TagString: Untagged
+  m_TagString: Surface
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1474,14 +1479,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1976130059}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.08, y: 0.54, z: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.04, y: 0.54, z: 3.3}
   m_LocalScale: {x: 0.4063697, y: 1, z: 4.85448}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1669909178}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1976130061
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1593,7 +1598,7 @@ MonoBehaviour:
     type: 3}
   behaviour: {fileID: 11400000, guid: c7edd3e3b03475f45ab9a60c6cf3ee84, type: 2}
   target: {fileID: 1324614341}
-  startingCount: 10
+  startingCount: 50
   driveFactor: 15
   maxSpeed: 5
   neighborRadius: 1.5

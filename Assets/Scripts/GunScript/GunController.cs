@@ -10,16 +10,18 @@ public class GunController : MonoBehaviour
 	[SerializeField] GameObject leftProjSocket;
 	[SerializeField] GameObject bulletProjectile;
 
+	[SerializeField] float projectileSpeed;
+
 	private void Update()
 	{
 		if(VrController_Inputs.Instance.rightTrigger.IsPressed())
 		{
-			Debug.Log("right shoot");
+			//Debug.Log("right shoot");
 			PlayerShoot(rightProjSocket);
 		}
 		if(VrController_Inputs.Instance.leftTrigger.IsPressed())
 		{
-			Debug.Log("left shoot");
+			//Debug.Log("left shoot");
 			PlayerShoot(leftProjSocket);
 		}
 	}
@@ -30,7 +32,16 @@ public class GunController : MonoBehaviour
 		if(shootProjectile != null ) 
 		{
 			shootProjectile.transform.position = socket.transform.position;
+			shootProjectile.transform.rotation = socket.transform.rotation;
+
 			shootProjectile.SetActive(true);
+
+			Rigidbody projectileRigidbody = shootProjectile.GetComponent<Rigidbody>();
+			if(projectileRigidbody != null) 
+			{
+				Vector3 shootDirection = socket.transform.forward;
+				projectileRigidbody.velocity = shootDirection * projectileSpeed;
+			}
 		}
 	}
 

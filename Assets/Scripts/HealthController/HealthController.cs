@@ -7,7 +7,6 @@ public class HealthController : MonoBehaviour
 	[SerializeField] private float maxHealth;
 
 	private float currentHealth;
-	private bool isDead;
 
 	private void OnEnable()
 	{
@@ -15,13 +14,13 @@ public class HealthController : MonoBehaviour
 	}
 	private void Start()
 	{
-		isDead = false;
 		currentHealth = maxHealth;
 	}
 
 	private void Update()
 	{
 		currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+		EntityDeadCheck();
 	}
 
 	public void DamageHealth(float damageTaken)
@@ -33,16 +32,15 @@ public class HealthController : MonoBehaviour
 		currentHealth += healAmount;
 	}
 
-	public bool EntityDead()
+	public void EntityDeadCheck()
 	{
-		if(currentHealth <= 0) 
+		if(currentHealth <= 0f) 
 		{
-			isDead = true;
+			this.gameObject.SetActive(false);
 		}
 		else
 		{
-			isDead = false;
+			return;
 		}
-		return isDead;
 	}
 }
