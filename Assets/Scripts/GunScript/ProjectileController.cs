@@ -37,9 +37,6 @@ public class ProjectileController : MonoBehaviour
 				hitEffect.transform.position = effectPoint.position;
 				// Activate the hit effect
 				hitEffect.SetActive(true);
-
-				// Deactivate the hit effect without returning it to the pool
-				ObjectPooler.instance.DeactivateObject(hitEffect);
 			}
 
 			this.gameObject.SetActive(false);
