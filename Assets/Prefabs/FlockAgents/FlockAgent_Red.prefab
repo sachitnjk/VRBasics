@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6298046300477046138}
   - component: {fileID: 6298046300477046141}
   - component: {fileID: 6298046300477046140}
+  - component: {fileID: 7063287707053234953}
   m_Layer: 0
   m_Name: FlockAgent_Red
   m_TagString: Untagged
@@ -59,6 +60,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a6185eb4b5c4d4bb212f71e9d27793, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7063287707053234953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6298046300477046139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fc56e86a2fc9047a6b15c8f8fddc97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 2
+  destroyEffect: {fileID: 8443315704496310910, guid: 6ef35fa36e3a65043b2d800600204bdd,
+    type: 3}
 --- !u!1001 &564574655392149516
 PrefabInstance:
   m_ObjectHideFlags: 0
