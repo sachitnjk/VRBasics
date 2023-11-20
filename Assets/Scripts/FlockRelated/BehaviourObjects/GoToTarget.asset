@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 867731d99271a194786e1c83add5215f, type: 3}
   m_Name: GoToTarget
   m_EditorClassIdentifier: 
-  desiredDistance: 15
+  desiredDistance: 10

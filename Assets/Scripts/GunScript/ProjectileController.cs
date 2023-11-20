@@ -33,9 +33,7 @@ public class ProjectileController : MonoBehaviour
 
 			if (hitEffect != null)
 			{
-				// Set the hit effect position to the effect point
 				hitEffect.transform.position = effectPoint.position;
-				// Activate the hit effect
 				hitEffect.SetActive(true);
 			}
 

@@ -6,23 +6,33 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GunController : MonoBehaviour
 {
-	[SerializeField] GameObject rightProjSocket;
-	[SerializeField] GameObject leftProjSocket;
+	[SerializeField] SimpleShoot rightControllerShootScript;
+	[SerializeField] SimpleShoot leftControllerShootScript;
+
 	[SerializeField] GameObject bulletProjectile;
 
 	[SerializeField] float projectileSpeed;
+
+	private GameObject rightProjSocket;
+	private GameObject leftProjSocket;
+
+	private void Start()
+	{
+		rightProjSocket = rightControllerShootScript.barrelLocation.gameObject;
+		leftProjSocket = leftControllerShootScript.barrelLocation.gameObject;
+	}
 
 	private void Update()
 	{
 		if(VrController_Inputs.Instance.rightTrigger.IsPressed())
 		{
-			//Debug.Log("right shoot");
 			PlayerShoot(rightProjSocket);
+			rightControllerShootScript.Shoot();
 		}
 		if(VrController_Inputs.Instance.leftTrigger.IsPressed())
 		{
-			//Debug.Log("left shoot");
 			PlayerShoot(leftProjSocket);
+			leftControllerShootScript.Shoot();
 		}
 	}
 

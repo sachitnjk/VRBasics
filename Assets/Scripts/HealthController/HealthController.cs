@@ -5,6 +5,7 @@ using UnityEngine;
 public class HealthController : MonoBehaviour
 {
 	[SerializeField] private float maxHealth;
+	[SerializeField] private GameObject destroyEffect;
 
 	private float currentHealth;
 
@@ -36,6 +37,14 @@ public class HealthController : MonoBehaviour
 	{
 		if(currentHealth <= 0f) 
 		{
+			GameObject deathEffect = ObjectPooler.instance.GetPooledObject(destroyEffect);
+			if(deathEffect != null) 
+			{
+				deathEffect.transform.position = this.gameObject.transform.position;
+				deathEffect.SetActive(true);
+				Debug.Log("going here");
+			}
+
 			this.gameObject.SetActive(false);
 		}
 		else
