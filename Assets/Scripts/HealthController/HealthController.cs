@@ -42,7 +42,6 @@ public class HealthController : MonoBehaviour
 			{
 				deathEffect.transform.position = this.gameObject.transform.position;
 				deathEffect.SetActive(true);
-				Debug.Log("going here");
 			}
 
 			this.gameObject.SetActive(false);

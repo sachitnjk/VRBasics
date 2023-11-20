@@ -199,6 +199,10 @@ MonoBehaviour:
       type: 3}
     countToPool: 20
     parentTransform: {fileID: 1647091492}
+  - prefab: {fileID: 8443315704496310910, guid: 6ef35fa36e3a65043b2d800600204bdd,
+      type: 3}
+    countToPool: 10
+    parentTransform: {fileID: 1647091492}
 --- !u!4 &245843198
 Transform:
   m_ObjectHideFlags: 0
@@ -1103,7 +1107,9 @@ MonoBehaviour:
   leftControllerShootScript: {fileID: 986701809}
   bulletProjectile: {fileID: 1190289218894991297, guid: 3fa6a9408fdbd78468f4b62fcca7b089,
     type: 3}
-  projectileSpeed: 10
+  projectileSpeed: 15
+  fireRate: 2.5
+  spreadAngle: 10
 --- !u!1 &1376800455
 GameObject:
   m_ObjectHideFlags: 0
