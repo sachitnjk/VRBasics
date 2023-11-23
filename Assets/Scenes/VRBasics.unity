@@ -1531,11 +1531,16 @@ MonoBehaviour:
     type: 3}
   behaviour: {fileID: 11400000, guid: c7edd3e3b03475f45ab9a60c6cf3ee84, type: 2}
   target: {fileID: 1324614341}
+  goToTargetSO: {fileID: 11400000, guid: 8dddd3a4a862a2a4b86b6e5e31f20eb8, type: 2}
   startingCount: 250
   driveFactor: 15
   maxSpeed: 5
   neighborRadius: 1.5
   avoidanceRadiusMultiplier: 0.5
+  initialTargetDistance: 10
+  newTargetDistance: 3
+  minDistanceChangeTime: 5
+  maxDistanceChangeTime: 10
 --- !u!1 &1997407495
 GameObject:
   m_ObjectHideFlags: 0
