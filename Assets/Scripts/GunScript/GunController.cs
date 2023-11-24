@@ -6,8 +6,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GunController : MonoBehaviour
 {
-	[SerializeField] SimpleShoot rightControllerShootScript;
-	[SerializeField] SimpleShoot leftControllerShootScript;
+	[SerializeField] GunEffects rightControllerShootScript;
+	[SerializeField] GunEffects leftControllerShootScript;
 
 	[SerializeField] GameObject bulletProjectile;
 
@@ -40,12 +40,12 @@ public class GunController : MonoBehaviour
 		}
 	}
 
-	private void TryShoot(GameObject socket, SimpleShoot shootScript, ref float nextFireTime)
+	private void TryShoot(GameObject socket, GunEffects shootScript, ref float nextFireTime)
 	{
 		if(Time.time >= nextFireTime)
 		{
 			PlayerShoot(socket);
-			shootScript.Shoot();
+			//shootScript.Shoot();
 			nextFireTime = Time.time + 1f/fireRate;
 		}
 	}
