@@ -30,9 +30,9 @@ public class Flock : MonoBehaviour
 	[Header("Attributes for GoTotarget behaviour")]
 	[SerializeField] private float initialTargetDistance = 10f;
 	[SerializeReference] private float newTargetDistance = 3f;
-	[Range(5f, 10f)]
+	[Range(5f, 20f)]
 	[SerializeField] private float minDistanceChangeTime;
-	[Range(10f, 15f)]
+	[Range(10f, 30f)]
 	[SerializeField] private float maxDistanceChangeTime;
 
 	//calculating squares and comparing squares instead of using roots everytime, saving some math calculation
@@ -46,7 +46,6 @@ public class Flock : MonoBehaviour
 		if (goToTargetSO != null) 
 		{
 			goToTargetSO.desiredDistance = initialTargetDistance;
-			Debug.Log(goToTargetSO.desiredDistance);
 		}
 
 		squareMaxSpeed = maxSpeed * maxSpeed;
@@ -73,7 +72,6 @@ public class Flock : MonoBehaviour
 
 		if(goToTargetSO != null)
 		{
-			//currentDesiredDistance = goToTargetSO.desiredDistance;
 			DistanceToPlayerCheck();
 		}
 
@@ -93,7 +91,6 @@ public class Flock : MonoBehaviour
 			}
 			agent.Move(move);
 		}
-		//Debug.Log(goToTargetSO.desiredDistance);
 	}
 
 	//getting list of nearby objects with exception of self collider
