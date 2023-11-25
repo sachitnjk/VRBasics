@@ -10,7 +10,7 @@ public class Flock : MonoBehaviour
 	public GameObject target;
 	public GoToTarget goToTargetSO;
 
-	[Range(10, 500)]
+	[Range(1, 500)]
 	public int startingCount = 250;
 	const float AgentDensity = 0.08f;
 
