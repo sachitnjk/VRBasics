@@ -40,12 +40,12 @@ public class GunController : MonoBehaviour
 		}
 	}
 
-	private void TryShoot(GameObject socket, GunEffects shootScript, ref float nextFireTime)
+	private void TryShoot(GameObject socket, GunEffects gunEffects, ref float nextFireTime)
 	{
 		if(Time.time >= nextFireTime)
 		{
 			PlayerShoot(socket);
-			//shootScript.Shoot();
+			gunEffects.Shoot();
 			nextFireTime = Time.time + 1f/fireRate;
 		}
 	}
