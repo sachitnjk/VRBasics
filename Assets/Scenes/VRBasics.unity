@@ -2032,7 +2032,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986701803}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.235, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2962,17 +2962,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54e6ea99ead7ce744a7a69effc14ca38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rightControllerShootScript: {fileID: 1997407502}
-  leftControllerShootScript: {fileID: 986701809}
-  bulletProjectile: {fileID: 3906352131627959738, guid: 390fbffffc937ee4ca4e28bd76509175,
-    type: 3}
   projectileSpeed: 40
   fireRate: 20
   spreadAngle: 10
-  leftDebugTextBox: {fileID: 816231498}
-  rightDebugTextBox: {fileID: 529990346}
   leftMagazineSize: 50
   rightMagazineSize: 50
+  bulletProjectile: {fileID: 3906352131627959738, guid: 390fbffffc937ee4ca4e28bd76509175,
+    type: 3}
+  rightControllerShootScript: {fileID: 1997407502}
+  leftControllerShootScript: {fileID: 986701809}
+  leftDebugTextBox: {fileID: 816231498}
+  rightDebugTextBox: {fileID: 529990346}
 --- !u!1 &1376800455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3934,7 +3934,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1984003777
 Transform:
   m_ObjectHideFlags: 0
@@ -4002,7 +4002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1997407495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.301, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
