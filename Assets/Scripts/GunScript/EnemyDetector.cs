@@ -33,20 +33,12 @@ public class EnemyDetector : MonoBehaviour
 				}
 
 				//Checking if more than 3 drones arfrom the same direction
-				if (directionCount[directionKey] >= 1)
+				if (directionCount[directionKey] >= 5)
 				{
 					Debug.Log(directionKey);
 				}
 			}
 
-		}
-	}
-
-	private void OnTriggerExit(Collider other)
-	{
-		if(other.gameObject.CompareTag("Drone"))
-		{
-			directionKey = "";
 		}
 	}
 

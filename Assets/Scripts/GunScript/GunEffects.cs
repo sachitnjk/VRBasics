@@ -13,7 +13,6 @@ public class GunEffects : MonoBehaviour
 	[Header("Settings")]
 	[SerializeField] private float destroyTimer = 2f;
 
-
 	void Start()
 	{
 		if (barrelLocation == null)
