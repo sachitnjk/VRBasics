@@ -65,15 +65,27 @@ public class Flock : MonoBehaviour
 			newAgent.Initialize(this);
 			agents.Add( newAgent );
 		}
+
+		StartCoroutine(DelayedStart());
+	}
+
+	private IEnumerator DelayedStart()
+	{
+		yield return new WaitForSeconds(10f); // Adjust the delay time as needed
+		while (true)
+		{
+			DistanceToPlayerCheck();
+			yield return null; // Yielding null makes it wait for the next frame
+		}
 	}
 
 	private void Update()
 	{
 
-		if(goToTargetSO != null)
-		{
-			DistanceToPlayerCheck();
-		}
+		//if(goToTargetSO != null)
+		//{
+		//	DistanceToPlayerCheck();
+		//}
 
 		foreach(FlockAgent agent in agents)
 		{
