@@ -18,9 +18,4 @@ public class HitDetector : MonoBehaviour
 			healthController.DamageHealth(1);
 		}
 	}
-
-	private void Update()
-	{
-		Debug.Log(healthController.CurrentHealth);
-	}
 }
