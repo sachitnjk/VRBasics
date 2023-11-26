@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 	public static GameManager instance;
 
 	public HealthController playerHealthController;
+	public BlockController blockController;
 
 	private void Awake()
 	{

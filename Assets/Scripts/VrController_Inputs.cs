@@ -12,9 +12,11 @@ public class VrController_Inputs : MonoBehaviour
 	public static VrController_Inputs Instance;
 
 	[SerializeField] private ActionBasedController leftHandController; 
-	[SerializeField] private ActionBasedController rightHandController; 
+	[SerializeField] private ActionBasedController rightHandController;
 	[HideInInspector] public InputAction rightTrigger;
 	[HideInInspector] public InputAction leftTrigger;
+	[HideInInspector] public InputAction rightgrip;
+	[HideInInspector] public InputAction leftgrip;
 
 	private void Awake()
 	{
@@ -26,26 +28,10 @@ public class VrController_Inputs : MonoBehaviour
 
 	private void Start()
 	{
+		rightgrip = rightHandController.selectAction.reference;
+		leftgrip = leftHandController.selectAction.reference;
+
 		rightTrigger = rightHandController.activateAction.reference;
 		leftTrigger = leftHandController.activateAction.reference;
 	}
-
-	//private void Update()
-	//{
-	//	TriggerCheck();
-	//}
-
-	//private void TriggerCheck()
-	//{
-	//	if (rightTrigger != null && rightTrigger.IsPressed())
-	//	{
-	//		Debug.Log("right pressed");
-	//		//DebugLogger.current.AddLine("right Pressed");
-	//	}
-	//	if (leftTrigger != null && leftTrigger.IsPressed())
-	//	{
-	//		Debug.Log("left pressed");
-	//		//DebugLogger.current.AddLine("left Pressed");
-	//	}
-	//}
 }
