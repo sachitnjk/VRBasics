@@ -7,35 +7,38 @@ public class HealthController : MonoBehaviour
 	[SerializeField] private float maxHealth;
 	[SerializeField] private GameObject destroyEffect;
 
-	private float currentHealth;
+	public float CurrentHealth{get; private set;}
 
 	private void OnEnable()
 	{
-		currentHealth = maxHealth;
+		CurrentHealth = maxHealth;
 	}
 	private void Start()
 	{
-		currentHealth = maxHealth;
+		CurrentHealth = maxHealth;
 	}
 
 	private void Update()
 	{
-		currentHealth = Mathf.Clamp(currentHealth, 0f, maxHealth);
+		CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, maxHealth);
 		EntityDeadCheck();
 	}
 
 	public void DamageHealth(float damageTaken)
 	{
-		currentHealth -= damageTaken;
+		CurrentHealth -= damageTaken;
 	}
 	public void HealHealth(float healAmount)
 	{
-		currentHealth += healAmount;
+		if(CurrentHealth < maxHealth)
+		{
+			CurrentHealth += healAmount;
+		}
 	}
 
 	public void EntityDeadCheck()
 	{
-		if(currentHealth <= 0f) 
+		if(CurrentHealth <= 0f) 
 		{
 			GameObject deathEffect = ObjectPooler.instance.GetPooledObject(destroyEffect);
 			if(deathEffect != null) 

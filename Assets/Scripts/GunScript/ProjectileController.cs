@@ -11,6 +11,12 @@ public class ProjectileController : MonoBehaviour
 	[SerializeField] GameObject hitEffectPrefab;
 
 	private HealthController droneHealthComponent;
+	private HealthController playerHealthController;
+
+	private void Start()
+	{
+		playerHealthController = GameManager.instance.playerHealthController;
+	}
 
 	private void Update()
 	{
@@ -35,6 +41,11 @@ public class ProjectileController : MonoBehaviour
 			{
 				hitEffect.transform.position = effectPoint.position;
 				hitEffect.SetActive(true);
+			}
+
+			if(other.gameObject.CompareTag("Drone"))
+			{
+				playerHealthController.HealHealth(0.5f);
 			}
 
 			this.gameObject.SetActive(false);

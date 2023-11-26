@@ -4,14 +4,23 @@ using UnityEngine;
 
 public class HitDetector : MonoBehaviour
 {
-	int currentDroneCount = 0;
+	private HealthController healthController;
+
+	private void Start()
+	{
+		healthController = GetComponent<HealthController>();
+	}
 
 	private void OnTriggerEnter(Collider other)
 	{
 		if(other.gameObject.CompareTag("Drone"))
 		{
-			currentDroneCount++;
-			Debug.Log(currentDroneCount);
+			healthController.DamageHealth(1);
 		}
+	}
+
+	private void Update()
+	{
+		Debug.Log(healthController.CurrentHealth);
 	}
 }
