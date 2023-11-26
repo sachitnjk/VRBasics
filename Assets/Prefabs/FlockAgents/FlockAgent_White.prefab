@@ -72,7 +72,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6fc56e86a2fc9047a6b15c8f8fddc97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1
+  <MaxHealth>k__BackingField: 1
   destroyEffect: {fileID: 8443315704496310910, guid: 6ef35fa36e3a65043b2d800600204bdd,
     type: 3}
 --- !u!1001 &6298046300862950673

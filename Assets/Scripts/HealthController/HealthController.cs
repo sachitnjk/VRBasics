@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class HealthController : MonoBehaviour
 {
-	[SerializeField] private float maxHealth;
+	[field: SerializeField] public float MaxHealth {get; private set;}
 	[SerializeField] private GameObject destroyEffect;
 
 	public float CurrentHealth{get; private set;}
 
 	private void OnEnable()
 	{
-		CurrentHealth = maxHealth;
+		CurrentHealth = MaxHealth;
 	}
 	private void Start()
 	{
-		CurrentHealth = maxHealth;
+		CurrentHealth = MaxHealth;
 	}
 
 	private void Update()
 	{
-		CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, maxHealth);
+		CurrentHealth = Mathf.Clamp(CurrentHealth, 0f, MaxHealth);
 		EntityDeadCheck();
 	}
 
@@ -30,7 +30,7 @@ public class HealthController : MonoBehaviour
 	}
 	public void HealHealth(float healAmount)
 	{
-		if(CurrentHealth < maxHealth)
+		if(CurrentHealth < MaxHealth)
 		{
 			CurrentHealth += healAmount;
 		}

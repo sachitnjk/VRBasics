@@ -9,13 +9,6 @@ public class GameManager : MonoBehaviour
 
 	public HealthController playerHealthController;
 
-	public TextMeshProUGUI tempHealthLogger;
-
-	private void Update()
-	{
-		tempHealthLogger.text = playerHealthController.CurrentHealth.ToString();
-	}
-
 	private void Awake()
 	{
 		if (instance == null)
