@@ -36,6 +36,11 @@ public class UIManager : MonoBehaviour
 		healthSlider.value = playerHealthController.CurrentHealth;
 		UpdateHealthBarColor();
 
+
+		if(playerBlockController.CanBlock)
+		{
+			blockMeterSlider.value = blockMeterMax;
+		}
 		if(playerBlockController != null && blockMeterSlider != null) 
 		{
 			if(playerBlockController.BlockTriggered) 
@@ -43,6 +48,8 @@ public class UIManager : MonoBehaviour
 				BlockTriggered();
 			}
 		}
+
+		Debug.Log(blockMeterSlider.value);
 	}
 
 	private void Awake()
@@ -70,15 +77,6 @@ public class UIManager : MonoBehaviour
 		if(blockMeterSlider.value <= 0f)
 		{
 			playerBlockController.BlockEnded = true;
-		}
-	}
-	public void OnBlockCooldownReset()
-	{
-		if (blockMeterSlider != null)
-		{
-			Debug.Log("going here");
-			// Reset the block meter slider to its maximum value
-			blockMeterSlider.value = blockMeterSlider.maxValue;
 		}
 	}
 }

@@ -13,7 +13,7 @@ public class BlockController : MonoBehaviour
 	private void Start()
 	{
 		CanBlock = true;
-		BlockEnded = true;
+		BlockEnded = false;
 		BlockTriggered = false;
 	}
 
@@ -34,10 +34,9 @@ public class BlockController : MonoBehaviour
 	private void ResetBlockCooldown()
 	{
 		//Called through Invoke function
-		if ((VrController_Inputs.Instance.rightgrip.WasReleasedThisFrame() || VrController_Inputs.Instance.leftgrip.WasReleasedThisFrame()) && BlockEnded)
+		if (BlockEnded)
 		{
 			CanBlock = true;
-			UIManager.Instance.blockMeterSlider.value = UIManager.Instance.blockMeterSlider.maxValue;
 			Debug.Log("Block cooldown reset");
 		}
 	}
