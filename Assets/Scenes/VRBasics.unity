@@ -637,7 +637,6 @@ MonoBehaviour:
   playerBlockController: {fileID: 1324614347}
   healthSlider: {fileID: 1657601226}
   blockMeterSlider: {fileID: 651284014}
-  blockMeterMax: 10
   healthSliderFillImage: {fileID: 1399993022}
 --- !u!1 &299237173
 GameObject:
@@ -1456,8 +1455,8 @@ MonoBehaviour:
   m_Direction: 0
   m_MinValue: 0
   m_MaxValue: 10
-  m_WholeNumbers: 0
-  m_Value: 10
+  m_WholeNumbers: 1
+  m_Value: 5
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3307,6 +3306,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockCooldown: 5
+  blockMeterValue: 0
+  blockMeterMax: 0
 --- !u!1 &1376800455
 GameObject:
   m_ObjectHideFlags: 0
@@ -4766,7 +4767,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1984003777
 Transform:
   m_ObjectHideFlags: 0

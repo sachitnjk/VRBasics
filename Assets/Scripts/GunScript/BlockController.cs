@@ -6,38 +6,48 @@ public class BlockController : MonoBehaviour
 {
 	[SerializeField] private float blockCooldown;
 
-	public bool CanBlock { get; private set; }
-	public bool BlockTriggered{get; private set;}
-	public bool BlockEnded { get; set; }
+	private bool canBlock;
+	private bool blockTriggered;
+	private bool blockEnded;
+
+	public int blockMeterValue;
+	public int blockMeterMax;
 
 	private void Start()
 	{
-		CanBlock = true;
-		BlockEnded = false;
-		BlockTriggered = false;
+		canBlock = true;
+		blockEnded = false;
+
+		blockMeterValue = blockMeterMax;
 	}
 
 	private void Update()
 	{
-		if(VrController_Inputs.Instance.rightgrip.IsPressed() && VrController_Inputs.Instance.leftgrip.IsPressed()) 
+		if(VrController_Inputs.Instance.rightgrip.IsPressed() && VrController_Inputs.Instance.leftgrip.IsPressed() && canBlock) 
 		{
-			Debug.Log("Both grips pressed");
-			if(CanBlock)
-			{
-				BlockTriggered = true;
-				CanBlock = false;
-				Invoke("ResetBlockCooldown", blockCooldown);
-			}
+			canBlock = false;
+			StartCoroutine(BlockIsTriggered());
 		}
 	}
-
-	private void ResetBlockCooldown()
+	private IEnumerator BlockIsTriggered()
 	{
-		//Called through Invoke function
-		if (BlockEnded)
+		while(blockMeterValue > 0)
 		{
-			CanBlock = true;
-			Debug.Log("Block cooldown reset");
+			blockMeterValue--;
+			yield return null;
 		}
+		blockMeterValue = 0;
+
+		yield return new WaitForSeconds(blockCooldown);
+
+		while (blockMeterValue < blockMeterMax)
+		{
+			blockMeterValue++;
+			yield return null;
+		}
+
+		canBlock = true;
+		blockMeterValue = blockMeterMax;
+		Debug.Log("Block cooldown reset");
 	}
 }

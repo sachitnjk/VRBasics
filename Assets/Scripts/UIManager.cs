@@ -11,11 +11,9 @@ public class UIManager : MonoBehaviour
 
 	public Slider healthSlider;
 	public Slider blockMeterSlider;
-	public float blockMeterMax;
 	public Image healthSliderFillImage;
 
 	private HealthController playerHealthController;
-	private BlockController blockController;
 
 
 	private void Start()
@@ -27,7 +25,7 @@ public class UIManager : MonoBehaviour
 		healthSlider.maxValue = playerHealthController.MaxHealth;
 		healthSlider.value = healthSlider.maxValue;
 
-		blockMeterSlider.maxValue = blockMeterMax;
+		blockMeterSlider.maxValue = playerBlockController.blockMeterMax;
 		blockMeterSlider.value = blockMeterSlider.maxValue;
 	}
 
@@ -36,20 +34,7 @@ public class UIManager : MonoBehaviour
 		healthSlider.value = playerHealthController.CurrentHealth;
 		UpdateHealthBarColor();
 
-
-		if(playerBlockController.CanBlock)
-		{
-			blockMeterSlider.value = blockMeterMax;
-		}
-		if(playerBlockController != null && blockMeterSlider != null) 
-		{
-			if(playerBlockController.BlockTriggered) 
-			{
-				BlockTriggered();
-			}
-		}
-
-		Debug.Log(blockMeterSlider.value);
+		blockMeterSlider.value = playerBlockController.blockMeterValue;
 	}
 
 	private void Awake()
@@ -68,15 +53,5 @@ public class UIManager : MonoBehaviour
 
 		// Set the gradient color to the slider fill image
 		healthSliderFillImage.color = gradientColor;
-	}
-
-	private void BlockTriggered()
-	{
-		blockMeterSlider.value = Mathf.Clamp(blockMeterSlider.value, 0f, blockMeterMax);
-		blockMeterSlider.value--;
-		if(blockMeterSlider.value <= 0f)
-		{
-			playerBlockController.BlockEnded = true;
-		}
 	}
 }
