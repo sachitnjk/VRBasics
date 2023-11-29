@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
 		blockMeterSlider.value = blockMeterSlider.maxValue;
 
 		gameTimerSlider.value = 0f;
-		gameTimerSlider.maxValue = gameTimerScript.holdOutTime;
+		gameTimerSlider.maxValue = gameTimerScript.HoldOutTime;
 	}
 
 	private void Update()

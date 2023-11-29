@@ -6,7 +6,7 @@ public class GameTimer : MonoBehaviour
 {
 	public float elapsedTime { get; private set; }
 	public bool reachedHoldOutTime { get; private set; }
-	[field: SerializeField] public float holdOutTime{get; private set; }
+	[field: SerializeField] public float HoldOutTime{get; private set; }
 	private void Update()
 	{
 		elapsedTime = Time.time;
@@ -16,9 +16,9 @@ public class GameTimer : MonoBehaviour
 
 	private void HoldOutChecker()
 	{
-		if(elapsedTime >= holdOutTime)
+		if(elapsedTime >= HoldOutTime)
 		{
-			elapsedTime = Mathf.Clamp(elapsedTime, 0f, holdOutTime);
+			elapsedTime = Mathf.Clamp(elapsedTime, 0f, HoldOutTime);
 
 			reachedHoldOutTime = true;
 		}

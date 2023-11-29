@@ -29,8 +29,6 @@ public class BlockController : MonoBehaviour
 			canBlock = false;
 			StartCoroutine(BlockIsTriggered());
 		}
-
-		Debug.Log(playerHitDetector.enabled);
 	}
 	private IEnumerator BlockIsTriggered()
 	{
@@ -55,6 +53,5 @@ public class BlockController : MonoBehaviour
 		canBlock = true;
 		playerHitDetector.enabled = true;
 		blockMeterValue = blockMeterMax;
-		Debug.Log("Block cooldown reset");
 	}
 }

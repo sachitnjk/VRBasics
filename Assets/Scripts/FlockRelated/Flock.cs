@@ -71,7 +71,7 @@ public class Flock : MonoBehaviour
 
 	private IEnumerator DelayedStart()
 	{
-		yield return new WaitForSeconds(10f); // Adjust the delay time as needed
+		yield return new WaitForSeconds(30f); // Adjust the delay time as needed
 		while (true)
 		{
 			DistanceToPlayerCheck();
