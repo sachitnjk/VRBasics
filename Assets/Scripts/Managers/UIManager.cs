@@ -7,14 +7,17 @@ public class UIManager : MonoBehaviour
 {
 	public static UIManager Instance;
 
+	[Header("Slider References")]
 	[SerializeField] private BlockController playerBlockController;
+	[SerializeField] private GameTimer gameTimerScript;
 
+	[Header("Slider References")]
 	public Slider healthSlider;
 	public Slider blockMeterSlider;
+	public Slider gameTimerSlider;
 	public Image healthSliderFillImage;
 
 	private HealthController playerHealthController;
-
 
 	private void Start()
 	{
@@ -27,6 +30,9 @@ public class UIManager : MonoBehaviour
 
 		blockMeterSlider.maxValue = playerBlockController.blockMeterMax;
 		blockMeterSlider.value = blockMeterSlider.maxValue;
+
+		gameTimerSlider.value = 0f;
+		gameTimerSlider.maxValue = gameTimerScript.holdOutTime;
 	}
 
 	private void Update()
@@ -35,6 +41,8 @@ public class UIManager : MonoBehaviour
 		UpdateHealthBarColor();
 
 		blockMeterSlider.value = playerBlockController.blockMeterValue;
+
+		gameTimerSlider.value = gameTimerScript.elapsedTime;
 	}
 
 	private void Awake()
