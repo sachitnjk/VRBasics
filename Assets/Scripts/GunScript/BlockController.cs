@@ -29,6 +29,8 @@ public class BlockController : MonoBehaviour
 			canBlock = false;
 			StartCoroutine(BlockIsTriggered());
 		}
+
+		Debug.Log(playerHitDetector.enabled);
 	}
 	private IEnumerator BlockIsTriggered()
 	{
