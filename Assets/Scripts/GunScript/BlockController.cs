@@ -4,14 +4,15 @@ using UnityEngine;
 
 public class BlockController : MonoBehaviour
 {
-	[SerializeField] private float blockCooldown;
+	[SerializeField] private HitDetector playerHitDetector;
 
 	private bool canBlock;
 	private bool blockTriggered;
 	private bool blockEnded;
 
-	public int blockMeterValue;
+	[SerializeField] private float blockCooldown;
 	public int blockMeterMax;
+	[HideInInspector] public int blockMeterValue;
 
 	private void Start()
 	{
@@ -36,6 +37,9 @@ public class BlockController : MonoBehaviour
 			blockMeterValue--;
 			yield return null;
 		}
+
+		playerHitDetector.enabled = false;
+
 		blockMeterValue = 0;
 
 		yield return new WaitForSeconds(blockCooldown);
@@ -47,6 +51,7 @@ public class BlockController : MonoBehaviour
 		}
 
 		canBlock = true;
+		playerHitDetector.enabled = true;
 		blockMeterValue = blockMeterMax;
 		Debug.Log("Block cooldown reset");
 	}

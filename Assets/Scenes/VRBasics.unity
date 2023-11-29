@@ -3952,9 +3952,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca133d6debf5a47418383345d994911b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerHitDetector: {fileID: 1040796977}
   blockCooldown: 5
-  blockMeterValue: 0
   blockMeterMax: 20
+  blockMeterValue: 0
 --- !u!1 &1376800455
 GameObject:
   m_ObjectHideFlags: 0
