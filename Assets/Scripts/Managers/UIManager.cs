@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,7 +8,7 @@ public class UIManager : MonoBehaviour
 {
 	public static UIManager Instance;
 
-	[Header("Slider References")]
+	[Header("Script References")]
 	[SerializeField] private BlockController playerBlockController;
 	[SerializeField] private GameTimer gameTimerScript;
 
@@ -16,6 +17,8 @@ public class UIManager : MonoBehaviour
 	public Slider blockMeterSlider;
 	public Slider gameTimerSlider;
 	public Image healthSliderFillImage;
+
+	[SerializeField] private TextMeshProUGUI blockStatusText;
 
 	private HealthController playerHealthController;
 
@@ -43,6 +46,15 @@ public class UIManager : MonoBehaviour
 		blockMeterSlider.value = playerBlockController.blockMeterValue;
 
 		gameTimerSlider.value = gameTimerScript.elapsedTime;
+
+		if(blockMeterSlider.value <= 0f)
+		{
+			blockStatusText.text = "Shield Recharging";
+		}
+		else if(blockMeterSlider.value >= blockMeterSlider.maxValue)
+		{
+			blockStatusText.text = "Shield Usable";
+		}
 	}
 
 	private void Awake()
