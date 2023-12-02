@@ -40,7 +40,6 @@ public class Flock : MonoBehaviour
 	float squareNeighborRadius;
 	float squareAvoidanceRadius;
 	public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
-
 	private void Start()
 	{
 		if (goToTargetSO != null) 
@@ -81,17 +80,9 @@ public class Flock : MonoBehaviour
 
 	private void Update()
 	{
-
-		//if(goToTargetSO != null)
-		//{
-		//	DistanceToPlayerCheck();
-		//}
-
 		foreach(FlockAgent agent in agents)
 		{
 			List<Transform> context = GetNearbyObjects(agent);
-
-			//for testing neighbour detections
 
 			Vector3 move = behaviour.CalculateMove(agent, context, this, target);
 			//multiplying by drive factor to get speedier movement

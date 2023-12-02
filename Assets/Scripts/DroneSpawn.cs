@@ -13,7 +13,7 @@ public class DroneSpawn : MonoBehaviour
 
 	private IEnumerator EnableDrones()
 	{
-		yield return new WaitForSeconds(10);
+		yield return new WaitForSeconds(5);
 		flockObject.SetActive(true);
 	}
 

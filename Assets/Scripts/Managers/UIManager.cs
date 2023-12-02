@@ -12,10 +12,11 @@ public class UIManager : MonoBehaviour
 	[SerializeField] private BlockController playerBlockController;
 	[SerializeField] private GameTimer gameTimerScript;
 
-	[Header("Slider References")]
+	[Header("UI Elements References")]
 	public Slider healthSlider;
 	public Slider blockMeterSlider;
 	public Slider gameTimerSlider;
+	public GameObject startTextPanel;
 	public Image healthSliderFillImage;
 
 	[SerializeField] private TextMeshProUGUI blockStatusText;
@@ -34,6 +35,9 @@ public class UIManager : MonoBehaviour
 		blockMeterSlider.maxValue = playerBlockController.blockMeterMax;
 		blockMeterSlider.value = blockMeterSlider.maxValue;
 
+		startTextPanel.SetActive(true);
+		StartCoroutine(OnStartTextTimer());
+
 		gameTimerSlider.value = 0f;
 		gameTimerSlider.maxValue = gameTimerScript.HoldOutTime;
 	}
@@ -50,6 +54,10 @@ public class UIManager : MonoBehaviour
 		if(blockMeterSlider.value <= 0f)
 		{
 			blockStatusText.text = "Shield Recharging";
+		}
+		else if(blockMeterSlider.value < blockMeterSlider.maxValue && blockMeterSlider.value > 0f)
+		{
+			blockStatusText.text = "Shield Active";
 		}
 		else if(blockMeterSlider.value >= blockMeterSlider.maxValue)
 		{
@@ -73,5 +81,11 @@ public class UIManager : MonoBehaviour
 
 		// Set the gradient color to the slider fill image
 		healthSliderFillImage.color = gradientColor;
+	}
+
+	private IEnumerator OnStartTextTimer()
+	{
+		yield return new WaitForSeconds(10);
+		startTextPanel.SetActive(false);
 	}
 }
