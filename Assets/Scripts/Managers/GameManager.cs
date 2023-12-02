@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 	public HealthController playerHealthController;
 	public BlockController blockController;
 
+	public bool empDischarged;
+
 	private void Awake()
 	{
 		if (instance == null)

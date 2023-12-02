@@ -50,6 +50,10 @@ public class UIManager : MonoBehaviour
 		blockMeterSlider.value = playerBlockController.blockMeterValue;
 
 		gameTimerSlider.value = gameTimerScript.elapsedTime;
+		if(gameTimerSlider.value >= gameTimerSlider.maxValue)
+		{
+			GameManager.instance.empDischarged = true;
+		}
 
 		if(blockMeterSlider.value <= 0f)
 		{
