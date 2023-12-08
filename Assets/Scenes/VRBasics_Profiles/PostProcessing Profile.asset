@@ -21,12 +21,12 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0.27042544, g: 0.547838, b: 0.5566038, a: 1}
+    value: {r: 0.37798145, g: 0.5792365, b: 0.5849056, a: 1}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
-    overrideState: 0
+    overrideState: 1
     value: 0
   smoothness:
     overrideState: 0
