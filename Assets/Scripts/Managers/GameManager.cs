@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 
 	public HealthController playerHealthController;
 	public BlockController blockController;
+	public AudioSource playerAudioSource;
 
 	public bool empDischarged;
 

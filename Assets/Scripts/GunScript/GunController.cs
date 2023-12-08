@@ -100,6 +100,9 @@ public class GunController : MonoBehaviour
 		if(Time.time >= nextFireTime)
 		{
 			PlayerShoot(socket);
+
+			SoundManager.instance.PlaySound(SoundManager.SoundType.PlayerShoot);
+
 			gunEffects.Shoot();
 
 			if (socket == leftProjSocket && leftCanShoot)

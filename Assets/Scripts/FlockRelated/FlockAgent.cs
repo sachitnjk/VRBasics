@@ -10,7 +10,6 @@ public class FlockAgent : MonoBehaviour
 	public Flock AgentFlock { get { return agentFlock; } }
 
 	Collider agentCollider;
-
 	//public collider accesor
 	public Collider AgentCollider {  get {  return agentCollider; } }
 
