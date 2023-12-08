@@ -7,8 +7,6 @@ public class BlockController : MonoBehaviour
 	[SerializeField] private HitDetector playerHitDetector;
 
 	private bool canBlock;
-	private bool blockTriggered;
-	private bool blockEnded;
 
 	[SerializeField] private float blockCooldown;
 	public int blockMeterMax;
@@ -17,7 +15,6 @@ public class BlockController : MonoBehaviour
 	private void Start()
 	{
 		canBlock = true;
-		blockEnded = false;
 
 		blockMeterValue = blockMeterMax;
 	}

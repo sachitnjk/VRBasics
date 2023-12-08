@@ -17,6 +17,7 @@ public class UIManager : MonoBehaviour
 	public Slider blockMeterSlider;
 	public Slider gameTimerSlider;
 	public GameObject startTextPanel;
+	public GameObject healthZeroPanel;
 	public Image healthSliderFillImage;
 
 	[SerializeField] private TextMeshProUGUI blockStatusText;
@@ -46,6 +47,7 @@ public class UIManager : MonoBehaviour
 	{
 		healthSlider.value = playerHealthController.CurrentHealth;
 		UpdateHealthBarColor();
+		OnHealthZero();
 
 		blockMeterSlider.value = playerBlockController.blockMeterValue;
 
@@ -91,5 +93,17 @@ public class UIManager : MonoBehaviour
 	{
 		yield return new WaitForSeconds(10);
 		startTextPanel.SetActive(false);
+	}
+
+	private void OnHealthZero()
+	{
+		if(playerHealthController.CurrentHealth <= 10)
+		{
+			healthZeroPanel.SetActive(true);
+		}
+		else
+		{
+			healthZeroPanel.SetActive(false);
+		}
 	}
 }
