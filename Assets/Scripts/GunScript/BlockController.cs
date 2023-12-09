@@ -24,6 +24,9 @@ public class BlockController : MonoBehaviour
 		if(VrController_Inputs.Instance.rightgrip.IsPressed() && VrController_Inputs.Instance.leftgrip.IsPressed() && canBlock) 
 		{
 			canBlock = false;
+
+			SoundManager.instance.PlaySound(SoundManager.SoundType.PlayerShield);
+
 			StartCoroutine(BlockIsTriggered());
 		}
 	}

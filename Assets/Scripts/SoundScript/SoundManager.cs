@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
+using static SoundManager;
 
 public class SoundManager : MonoBehaviour
 {
@@ -15,13 +16,16 @@ public class SoundManager : MonoBehaviour
 
 	[Header("Audio Mixer Groups")]
 	public AudioMixerGroup playerGroup;
+	public AudioMixerGroup playerHealthGroup;
 
 	[SerializeField] private AudioSource audioSource;
+	[SerializeField] private AudioSource loopedAudioSource;
 
 	public enum SoundType
 	{
 		PlayerShoot,
 		PlayerShield,
+		PlayerLowHealth,
 	}
 
 	private void Awake()
@@ -53,12 +57,55 @@ public class SoundManager : MonoBehaviour
 		{
 			audioSource.clip = clip;
 			audioSource.outputAudioMixerGroup = audioMixerGroup;
-			Debug.Log("wee");
 			audioSource.PlayOneShot(audioSource.clip);
 		}
 		else
 		{
 			Debug.Log("Sound type not found");
+		}
+	}
+
+
+	public void PlayLoopSound(SoundType type)
+	{
+		AudioClip clip = null;
+		AudioMixerGroup audioMixerGroup = null;
+		AudioSource currentAudioSource = null;
+
+		switch (type)
+		{
+			case SoundType.PlayerLowHealth:
+				clip = playerLowHealth;
+				audioMixerGroup = playerHealthGroup;
+				currentAudioSource = loopedAudioSource;
+				break;
+		}
+
+		if (clip != null)
+		{
+			currentAudioSource.clip = clip;
+			currentAudioSource.outputAudioMixerGroup = audioMixerGroup;
+			currentAudioSource.Play();
+		}
+		else
+		{
+			Debug.Log("Sound type not found");
+		}
+	}
+	public void StopLoopSound(SoundType type)
+	{
+		AudioSource currentAudioSource = null;
+
+		switch (type)
+		{
+			case SoundType.PlayerLowHealth:
+				currentAudioSource = loopedAudioSource;
+				break;
+		}
+
+		if (currentAudioSource != null && currentAudioSource.isPlaying)
+		{
+			currentAudioSource.Stop();
 		}
 	}
 }

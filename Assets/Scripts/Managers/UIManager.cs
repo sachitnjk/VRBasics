@@ -100,9 +100,11 @@ public class UIManager : MonoBehaviour
 		if(playerHealthController.CurrentHealth <= 10)
 		{
 			healthZeroPanel.SetActive(true);
+			SoundManager.instance.PlayLoopSound(SoundManager.SoundType.PlayerLowHealth);
 		}
 		else
 		{
+			SoundManager.instance.StopLoopSound(SoundManager.SoundType.PlayerLowHealth);
 			healthZeroPanel.SetActive(false);
 		}
 	}
