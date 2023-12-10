@@ -13,7 +13,8 @@ public class ButtonHandler : MonoBehaviour
 	[SerializeField] private GameObject controlsPanel;
 
 	[Header("AudioMixer")]
-	[SerializeField] private AudioMixer audioMixer;
+	[SerializeField] private AudioMixer settingsAudioMixer;
+	[SerializeField] private AudioSource audioSource;
 
 	public void StartGame(int index)
 	{
@@ -59,14 +60,19 @@ public class ButtonHandler : MonoBehaviour
 
 	public void MasterVolumeSetter(float slidervalue)
 	{
-		audioMixer.SetFloat("MasterVolume", Mathf.Log10(slidervalue) * 20);
+		settingsAudioMixer.SetFloat("MasterVolume", Mathf.Log10(slidervalue) * 20);
 	}
 	public void EntityVolumeSetter(float slidervalue)
 	{
-		audioMixer.SetFloat("EntityVolume", Mathf.Log10(slidervalue) * 20);
+		settingsAudioMixer.SetFloat("EntityVolume", Mathf.Log10(slidervalue) * 20);
 	}
 	public void BGMSetter(float slidervalue)
 	{
-		audioMixer.SetFloat("BGM", Mathf.Log10(slidervalue) * 20);
+		settingsAudioMixer.SetFloat("BGM", Mathf.Log10(slidervalue) * 20);
+	}
+
+	public void PlayButtonClick()
+	{
+		audioSource.PlayOneShot(audioSource.clip);
 	}
 }
