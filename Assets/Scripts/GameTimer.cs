@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
@@ -9,9 +10,12 @@ public class GameTimer : MonoBehaviour
 	[field: SerializeField] public float HoldOutTime{get; private set; }
 	private void Update()
 	{
-		elapsedTime = Time.time;
+		if(SceneManager.GetActiveScene().name == gameObject.scene.name)
+		{
+			elapsedTime += Time.deltaTime;
 
-		HoldOutChecker();
+			HoldOutChecker();
+		}
 	}
 
 	private void HoldOutChecker()
